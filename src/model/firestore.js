@@ -9,3 +9,5 @@ initializeApp({
   )
 });
 
+export const firestoreInstance = getFirestore();
+
