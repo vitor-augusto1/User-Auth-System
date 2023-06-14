@@ -1,7 +1,7 @@
 import { IUser, UserRole } from "../interfaces/IUser";
 
 
-class UserSchema implements IUser {
+export class UserSchema implements IUser {
   userName: string;
   email: string;
   password: string;
