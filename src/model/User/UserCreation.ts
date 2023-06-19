@@ -1,5 +1,6 @@
 import { UserSchema } from "../../schemas/user";
 import { firestoreInstance } from "../firestore";
+import bcrypt from "bcrypt";
 
 async function createNewUserDocument(newUser: UserSchema): Promise<void> {
   const userEmail = newUser.email;
