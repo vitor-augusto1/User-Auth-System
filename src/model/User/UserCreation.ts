@@ -16,6 +16,12 @@ async function encryptUserPassword(userPassword: string): Promise<string | boole
 }
 
 
+async function userHasAvalidPassword(userPassword: string, hash: string): Promise<boolean> {
+  const isUserPassowordValid: boolean = await bcrypt.compare(userPassword, hash);
+  return isUserPassowordValid;
+}
+
+
   const userEmail = newUser.email;
   const documentReference = firestoreInstance.collection('users').doc(userEmail);
   await documentReference.set({
