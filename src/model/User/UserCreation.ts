@@ -22,6 +22,11 @@ async function userHasAvalidPassword(userPassword: string, hash: string): Promis
 }
 
 
+async function createNewUserDocument(newUser: UserSchema): Promise<boolean> {
+  const encryptedUserPassword = await encryptUserPassword(newUser.password);
+  if (!encryptUserPassword) {
+    return false;
+  }
   const userEmail = newUser.email;
   const documentReference = firestoreInstance.collection('users').doc(userEmail);
   await documentReference.set({
