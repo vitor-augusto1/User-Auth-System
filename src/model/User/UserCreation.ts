@@ -32,7 +32,8 @@ async function createNewUserDocument(newUser: UserSchema): Promise<boolean> {
   await documentReference.set({
     userName: newUser.userName,
     email: userEmail,
-    password: " ", //Encrypt user's password before storing it
+    password: encryptUserPassword, //Encrypt user's password before storing it
     userRole: newUser.userRole,
   });
+  return true;
 }
