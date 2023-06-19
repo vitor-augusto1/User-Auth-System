@@ -2,7 +2,11 @@ import { UserSchema } from "../../schemas/user";
 import { firestoreInstance } from "../firestore";
 import bcrypt from "bcrypt";
 
-async function createNewUserDocument(newUser: UserSchema): Promise<void> {
+
+async function encryptUserPassword(userPassword: string): Promise<string | boolean> {
+}
+
+
   const userEmail = newUser.email;
   const documentReference = firestoreInstance.collection('users').doc(userEmail);
   await documentReference.set({
