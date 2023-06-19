@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 
 async function encryptUserPassword(userPassword: string): Promise<string | boolean> {
+  const saltRounds: number = 20;
 }
 
 
