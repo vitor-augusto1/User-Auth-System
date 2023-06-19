@@ -22,7 +22,7 @@ async function userHasAvalidPassword(userPassword: string, hash: string): Promis
 }
 
 
-async function createNewUserDocument(newUser: UserSchema): Promise<boolean> {
+export async function createNewUserDocument(newUser: UserSchema): Promise<boolean> {
   const encryptedUserPassword = await encryptUserPassword(newUser.password);
   if (!encryptUserPassword) {
     return false;
