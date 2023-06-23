@@ -23,4 +23,18 @@ export async function login(req: Request, res: Response) {
   if (!userDocument) {
     return res.status(404).json({ error: "User not found." });
   }
+  const storedHashedPassword = userDocument.password;
+  if (! await userHasAvalidPassword(password, storedHashedPassword)) {
+    return res.status(401).json({ error: "Wrong credentials" });
+  }
+  const token = sign(
+    {
+      email: email,
+    },
+    jwtAuth.secret,
+    {
+      expiresIn: jwtAuth.expires,
+    }
+  );
+  return res.status(200).json({ token });
 }
