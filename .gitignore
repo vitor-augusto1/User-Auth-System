@@ -1,2 +1,4 @@
 node_modules/
 .env.dev
+serviceAccountKey.json
+user-auth-system-3ffb3-firebase-adminsdk-r2t5a-820653d9b4.json
