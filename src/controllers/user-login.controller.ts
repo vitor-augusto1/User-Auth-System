@@ -20,4 +20,7 @@ export async function login(req: Request, res: Response) {
   }
   const { email, password }: IUserLogin = req.body;
   const userDocument: any = await findUserbyEmail(email);
+  if (!userDocument) {
+    return res.status(404).json({ error: "User not found." });
+  }
 }
