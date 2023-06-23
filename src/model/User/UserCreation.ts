@@ -24,7 +24,7 @@ async function userHasAvalidPassword(userPassword: string, hash: string): Promis
 
 export async function createNewUserDocument(newUser: UserSchema): Promise<boolean> {
   const encryptedUserPassword = await encryptUserPassword(newUser.password);
-  if (!encryptUserPassword) {
+  if (!encryptedUserPassword) {
     return false;
   }
   const userEmail = newUser.email;
@@ -32,7 +32,7 @@ export async function createNewUserDocument(newUser: UserSchema): Promise<boolea
   await documentReference.set({
     userName: newUser.userName,
     email: userEmail,
-    password: encryptUserPassword, //Encrypt user's password before storing it
+    password: encryptedUserPassword,
     userRole: newUser.userRole,
   });
   return true;
