@@ -13,4 +13,9 @@ const jwtAuth = {
 
 
 export async function login(req: Request, res: Response) {
+  const errors = validationResult(req);
+  const thereIsErrorsInTheRequest = !errors.isEmpty();
+  if (thereIsErrorsInTheRequest) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 }
