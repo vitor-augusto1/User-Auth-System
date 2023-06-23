@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 
 
 async function encryptUserPassword(userPassword: string): Promise<string | boolean> {
-  const saltRounds: number = 20;
+  const saltRounds: number = 10;
   try {
     const hashedPassword: string = await bcrypt.hash(userPassword, saltRounds);
     console.log(`Hashed password: ${hashedPassword}`);
