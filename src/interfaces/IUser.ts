@@ -10,3 +10,9 @@ export interface IUser {
   password: string;
   userRole: UserRole | undefined;
 }
+
+
+export interface IUserLogin {
+  email: string;
+  password: string;
+}
