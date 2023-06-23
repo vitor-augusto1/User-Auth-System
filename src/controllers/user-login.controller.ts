@@ -18,4 +18,6 @@ export async function login(req: Request, res: Response) {
   if (thereIsErrorsInTheRequest) {
     return res.status(400).json({ errors: errors.array() });
   }
+  const { email, password }: IUserLogin = req.body;
+  const userDocument: any = await findUserbyEmail(email);
 }
