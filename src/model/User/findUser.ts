@@ -1,7 +1,8 @@
+import { UserSchema } from "../../schemas/user";
 import { firestoreInstance } from "../firestore";
 
 
-type FirestoreDocument = FirebaseFirestore.DocumentData | undefined;
+export type FirestoreDocument = FirebaseFirestore.DocumentData | undefined | UserSchema;
 
 
 export async function findUserbyEmail(email: string): Promise<boolean | FirestoreDocument> {
@@ -14,6 +15,6 @@ export async function findUserbyEmail(email: string): Promise<boolean | Firestor
     return false;
   }
   const userData: FirestoreDocument = docSnapshot.data();
-  console.log(`User found: ${userData}`);
+  console.log(`User found: ${docSnapshot}`);
   return userData;
 }
