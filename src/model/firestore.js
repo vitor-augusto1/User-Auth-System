@@ -5,6 +5,7 @@ import * as serviceAccount from '../../serviceAccountKey.json' assert { type: "j
 initializeApp({
   credential: cert(
     {
+      // Your credentials
     }
   )
 });
