@@ -1,7 +1,7 @@
 # User Auth System
 
 This is an user authentication system API, built with express, typescript and
-firestore. My goal with this project was to improve my skill in typescript and
+firestore. My goal with this project was to improve my skills in typescript and
 node.
 
 ## Dependencies
